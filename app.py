@@ -7,7 +7,8 @@ from openai import APIConnectionError, APIStatusError, AuthenticationError, Open
 
 app = Flask(__name__, static_folder="frontend")
 app.json.ensure_ascii = False
-load_dotenv(override=True)
+if os.getenv("FLASK_SKIP_DOTENV") != "1":
+    load_dotenv(override=True)
 messages = []
 next_message_id = 1
 
