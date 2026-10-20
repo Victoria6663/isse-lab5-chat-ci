@@ -106,7 +106,7 @@ def delete_message(message_id):
     if record is None:
         return jsonify(error="未找到该聊天记录"), 404
 
-    # messages.remove(record)
+    messages.remove(record)
     return "", 204
 
 
